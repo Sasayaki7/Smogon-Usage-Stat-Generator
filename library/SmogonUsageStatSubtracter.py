@@ -7,7 +7,7 @@ import UsageAnalyzer
 pokemonName = re.compile("[a-zA-Z].+?(?=  )")
 usewinsmirrors = re.compile("(?<=  )\d+(?= )")
 
-filelocation = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+filelocation = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(os.path.dirname(__file__))))
 	
 f = open(os.path.join(filelocation, 'CONFIG.txt'))
 

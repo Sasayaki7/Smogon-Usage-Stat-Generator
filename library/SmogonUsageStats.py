@@ -17,7 +17,7 @@ domain = "https://www.smogon.com"
 usageStats = {}
 roundAndReplays = {}
 
-filelocation = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+filelocation = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(os.path.dirname(__file__))))
 f = open(os.path.join(filelocation, 'CONFIG.txt'))
 directory = re.search("(?<=ROOT_DIRECTORY=).+", f.read()).group(0)
 

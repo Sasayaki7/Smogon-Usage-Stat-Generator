@@ -3,6 +3,7 @@ import re
 import unicodedata
 import sys
 import json
+import os
 
 winnerRegex = re.compile('(?<=\|win\|).+')
 teamRegex = re.compile('(?<=clearpoke\n).+?(?=teampreview)', re.DOTALL)
@@ -10,12 +11,13 @@ t1Regex = re.compile('(?<=p1\|).+?(?=[,\|])')
 t2Regex = re.compile('(?<=p2\|).+?(?=[,\|])')
 megaRegex = re.compile('(?<=\|\-mega\|p)\d.:[^\|]+\|[^\|]+\|[^\|]+')
 
-megaStoneJSON = open("megaEvolves.json", "r")
+jsonFolder = os.path.dirname(__file__)
+megaStoneJSON = open(os.path.join(jsonFolder, 'json/megaEvolves.json'), "r")
 megaStoneToMegaPokemon = json.loads(megaStoneJSON.read())
 
 
 megaList = {megaStoneToMegaPokemon[x][0]:megaStoneToMegaPokemon[x][1] for x in megaStoneToMegaPokemon}
-banJSON = open("BanList.json", "r")
+banJSON = open(os.path.join(jsonFolder, 'json/banList.json'), "r")
 banList = json.loads(banJSON.read())
 
 

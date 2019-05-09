@@ -1,7 +1,8 @@
+import sys
+sys.path.insert(0, 'library')
+
 import SmogonUsageStatSubtracter as suss
 import SingleThreadAnalyzer as sta
-import sys
-
 
 #--------------------------------------------------------------------------------------------------------
 #This program uses previous usage stats and subtracts out the previous usage stat from the current usage stat in order to calculate the current round usage stats.
@@ -37,9 +38,11 @@ def main(r=None):
 	if int(round) == 1:
 		ft = headerOfFile+"1"
 		fileName = filePrefix+"1"
-	else:
+	elif int(round) > 1:
 		ft = headerOfFile+"1-"+str(round)
 		fileName = filePrefix+"1to"+str(round)
+	else:
+		raise Exception("Invalid round input: {}. round must be an integer greater than 1".format(round))
 	sta.main(thread, ft, fileName, format)
 	if int(round) > 1:
 		if int(round) > 2:
