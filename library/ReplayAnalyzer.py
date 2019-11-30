@@ -175,6 +175,11 @@ def searchForMegas(replayText, team1, team2, tier):
 	t1 = team1
 	t2 = team2
 	#Because we will be modifying the teams, better put it as a new variable.
+    
+    
+    #New-- gen8 doesn't have megas so we adding this instead.
+    if not (re.search("gen7", tier) or re.search("gen6", tier)):
+        return t1, t2
 	
 	megaPokemons = megaRegex.findall(replayText)
 	#Searches the replay for any signs of Mega Evolutions
