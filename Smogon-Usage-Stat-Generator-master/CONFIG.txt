@@ -1,0 +1,1 @@
+ROOT_DIRECTORY=C:\Users\rikur\Documents\Smogon Stats\
