@@ -62,10 +62,10 @@ def subtractStats(cumulativeStatFile, prevCumulativeStatFile, fileTitle, tourNam
 	total = 0
 	#Tracks the total pokemon used
 	
-	for pokemon in prevCumulativeList.keys():
+	for pokemon in cumulativeList.keys():
 	#Iterates through all the pokemon found in @prevCumulativeList
 	
-		if pokemon in cumulativeList:
+		if pokemon in prevCumulativeList:
 			#If the pokemon is found in @cumulativeList, we subtract out the usage, win, and mirrors from @cumulativeList
 			
 			#Temp variable to store the Dictionary in the given key @pokemon
@@ -82,7 +82,8 @@ def subtractStats(cumulativeStatFile, prevCumulativeStatFile, fileTitle, tourNam
 			#If there is no usage, we delete the entry from the Dictionary.
 			if cumulativeList[pokemon]["usage"] == 0:
 				del cumulativeList[pokemon]
-				
+		else:
+			total = total+cumulativeList[pokemon]["usage"]
 	#Number of teams.
 	total = total/6
 	
