@@ -79,14 +79,18 @@ def subtractStats(cumulativeStatFile, prevCumulativeStatFile, fileTitle, tourNam
 			uselist["mirror"] = uselist["mirror"]-oldList["mirror"]
 			#Subtraction
 			
-			#If there is no usage, we delete the entry from the Dictionary.
-			if cumulativeList[pokemon]["usage"] == 0:
-				del cumulativeList[pokemon]
 		else:
 			total = total+cumulativeList[pokemon]["usage"]
+            
+            
 	#Number of teams.
 	total = total/6
-	
+    
+	array = dict()
+	for pokemon in cumulativeList.keys():
+		if cumulativeList[pokemon]["usage"] != 0:
+			array[pokemon] = cumulativeList[pokemon]
+			
 	#Output the usageStat file 
 	UsageAnalyzer.writeStats(fileTitle, tourName, cumulativeList, total)
 	
