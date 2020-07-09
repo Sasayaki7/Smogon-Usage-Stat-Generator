@@ -97,9 +97,11 @@ def getTierUrl(tier):
 		finalTier = "gen2"
 	elif t[:3] == "rby" or t[:4] == "gen1" or t[:5] == "gen 1":
 		finalTier = "gen1"
+   	elif t[:2] == 'ss' or t[:4] == "gen8" or t[:5] == "gen 8":
+   	   	finalTier = "gen8"
 	else:
-		print("Generation not found; Assuming Current Gen (Default Gen 7)")
-		finalTier = "gen7"
+		print("Generation not found; Assuming Current Gen (Default Gen 8)")
+		finalTier = "gen8"
 	
 	#Append the tier to the generation			
 	if t[-9:] == "doublesou":
