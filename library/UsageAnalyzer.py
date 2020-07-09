@@ -111,12 +111,24 @@ altFormDict = {'Keldeo-Resolute': 'Keldeo',
 	'Minior-Blue': 'Minior',
 	'Minior-Orange': 'Minior',
 	'Minior-Green': 'Minior',
-	'Minior-Yellow': 'Minior',		
+	'Minior-Yellow': 'Minior',
+	'Alcremie-Rainbow-Swirl': 'Alcremie',
+    	'Alcremie-Ruby-Cream': 'Alcremie',
+    	'Alcremie-Mint-Cream': 'Alcremie',
+    	'Alcremie-Matcha-Cream': 'Alcremie',
+    	'Alcremie-Salted-Cream': 'Alcremie',
+    	'Alcremie-Lemon-Cream': 'Alcremie',
+    	'Alcremie-Ruby-Swirl': 'Alcremie',
+    	'Alcremie-Caramel-Swirl': 'Alcremie',
+    	'Alcremie-Vanilla-Cream': 'Alcremie',
+    	'Toxtricity-Low-Key': 'Toxtricity',
+    	'Polteageist-Antique': 'Polteageist',
+    	'Zarude-Dada': 'Zarude',
 }
 	
 #constants that define the length of a tab and the max name length a pokemon can have
 tabLength = 4 #Smogon Code tabs out at 4 spaces .
-maxNameLength = 18 #Longest pokemon name that aren't contained in altFormDict is 18 characters long.
+maxNameLength = 22 #Longest pokemon name that aren't contained in altFormDict is 18 characters long.
 
 
 
