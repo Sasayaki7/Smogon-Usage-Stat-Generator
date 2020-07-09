@@ -92,7 +92,7 @@ def subtractStats(cumulativeStatFile, prevCumulativeStatFile, fileTitle, tourNam
 			array[pokemon] = cumulativeList[pokemon]
 			
 	#Output the usageStat file 
-	UsageAnalyzer.writeStats(fileTitle, tourName, cumulativeList, total)
+	UsageAnalyzer.writeStats(fileTitle, tourName, array, total)
 	
 #Exists purely to be able to be called directly from the terminal
 def main(cumulativeStatFile, prevCumulativeStatFile, fileTitle, tourName):	
