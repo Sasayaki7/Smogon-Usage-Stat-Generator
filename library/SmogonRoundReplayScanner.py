@@ -151,7 +151,7 @@ def getReplays(thread, tier=None):
 			pageNum = int(pagematchObj.group(0))
 			for i in range(pageNum-1):
 				#Keep iterating until the final page.
-				r2 = requests.get(link+"/page-"+str(i+2))
+				r2 = requests.get(thread+"/page-"+str(i+2))
 				
 				#Add on all replays found into listOfReplays
 				listOfReplays.extend(findReplays(r2.text, tier))
