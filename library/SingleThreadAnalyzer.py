@@ -14,6 +14,9 @@ import sys
 allReplays = []
 #Empty array which contains the usage stats for each Pokemon
 
+failedReplays = []
+#Empty array which contains failed replays.
+
 filelocation = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(os.path.dirname(__file__))))
 #Leads to directory two above.
 	
@@ -63,8 +66,11 @@ def main(thread=None, tourName=None, fileName=None, tiernameInReplayUrl=None):
 		r3 = requests.get('https:/'+replay)
 		replayText = r3.text
 		#Dummy variable that gets the replay in text format
-		
-		allReplays.append(ReplayAnalyzer.replayAlgorithm(replayText))
+		returnedMessage = ReplayAnalyzer.replayAlgorithm(replayText)
+		if returnedMessage:
+			allReplays.append(ReplayAnalyzer.replayAlgorithm(replayText))
+		else:
+			failedReplays.append(replay)
 		#Gets the replay link, parses it to the replayAnalyzer and obtains a simplified version of the replay (with teams, winners).
 		
 	if not os.path.exists(directory+finalFileName+'\\'):
@@ -75,7 +81,11 @@ def main(thread=None, tourName=None, fileName=None, tiernameInReplayUrl=None):
 	json.dump(allReplays, round_file)
 	#Outputs and creates the file that contains all the replays from  the team
 	round_file.close()
-	
+	if len(failedReplays) > 0:
+        print()
+		print(f'{len(failedReplays)} replays failed to load! Failed links:' )
+		for failedReplay in failedReplays:
+			print(failedReplay)
 	UsageAnalyzer.outputStats(finalTourName, finalFileName)
 	#Creates the usage stat document from the replays of the thread
 	
