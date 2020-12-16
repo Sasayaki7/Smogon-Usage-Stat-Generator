@@ -175,12 +175,11 @@ def searchForMegas(replayText, team1, team2, tier):
 	t1 = team1
 	t2 = team2
 	#Because we will be modifying the teams, better put it as a new variable.
-    
-    
-    #New-- gen8 doesn't have megas so we adding this instead.
-    if not (re.search("gen7", tier) or re.search("gen6", tier)):
-        return t1, t2
 	
+    #New-- gen8 doesn't have megas so we adding this instead.
+	if not (re.search("gen7", tier) or re.search("gen6", tier)):
+		return t1, t2
+	    
 	megaPokemons = megaRegex.findall(replayText)
 	#Searches the replay for any signs of Mega Evolutions
 	
@@ -232,6 +231,10 @@ def replayAlgorithm(replaytext):
 	#If the replay wasn't saved properly, we return None. We don't want to raise an exception.
 	replayDoesntExist = re.search("The battle you're looking for has expired. Battles expire after 15 minutes of inactivity unless they're saved.", replaytext)
 	if replayDoesntExist:
+		return
+	 
+	invalidReplay = re.search("Replay not found", replaytext)
+	if invalidReplay:
 		return
 	
 	#Extracts the team Preview from the replay.
